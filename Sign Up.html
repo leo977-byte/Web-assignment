@@ -4,19 +4,30 @@
         <title>This is the Sign Up Page</title>
     </head>
     <body>
-        <h1>Sign Up</h1>
+        <h1 align = center>Sign Up</h1>
         <h1>Already have an account? <a href="log%20in.html">Log In</a></h1>
-        <form>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <br><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <br><br>
-            <input type="submit" value="Sign Up">
+             <hr>
+        <form align = center>
+             <p>Please select your role:</p>
+             <input type="radio" id="admin" name="user_role" value="admin">
+             <label for="admin">Admin</label><br>
+             <input type="radio" id="user" name="user_role" value="user" checked>
+             <label for="user">User</label>
+        </form>
+        <form align = center>
+             <label for="username">Username:</label>
+             <input type="text" id="username" name="username" required>
+             <br><br>
+             <label for="email">Email:</label>
+             <input type="email" id="email" name="email" required>
+             <br><br>
+             <label for="password">Password:</label>
+             <input type="password" id="password" name="password" required>
+             <label for="confirm_password">Confirm Password:</label>
+             <input type="password" id="confirm_password" name="confirm_password" required>
+             <br><br>
+             <hr>
+             <input type="submit" value="Sign Up" align = center>
         </form>
     </body>
 </html>
