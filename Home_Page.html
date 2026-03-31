@@ -2,39 +2,50 @@
 <html>
     <head>
         <link rel="stylesheet" href="Home_Style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <title>Home page</title>
 <meta charset="UTF-8">
     </head>
     
     <body>
+        <header>
         <nav>
-
-       <a href="LogIn.html">Log In |</a>
-
-      <a href="SignUp.html">Sign Up
-       </a>
+        <img src="Recipe_Logo.png"  alt="Recipe Finder Logo" >
+        <div id="nav-links">
+        <a href="LogIn.html" ><i class="fa-solid fa-circle-user"></i> <span>Log In</span></a>
+        <a href="SignUp.html">Sign Up</a>
+       </div>
        </nav>
-<hr>
+
 <div class="title">
         <h1 >A Piece of cake</h1>
-        <img src="Recipe_Logo.png"  alt="Recipe Finder Logo"  width="200" height="200">
-       <h2>Find your next favorite recipe</h2>
-      <p><b>Discover delicious recipes and start cooking today &#127869</b></p>
+        <h2>Taste the Magic of Homemade Cooking</h2><br>
+        <p>Are You Hungry?<br> Discover delicious recipes and start cooking today &#127869</p>
         </div>
-<br>
+          <div class="overlay"></div>
+
+        </header>
+       
 <div class="pop_rec">
-
 <h3 >Popular Recipes</h3>
-<img src="pizza.jpg" width="200">
-<p>Italian Pizza</p>
-<a href="user_pizza.html">View Recipe</a>
 
-<br>
-
-<img src="cookies.jpg" width="200">
-<p>cookies</p>
-<a href="user_cookies.html">View Recipe</a>
-
+    <div class="recipes">
+        <div class="card">
+              <img src="pizza.jpg" width="200" height="300">
+             <p>Italian Pizza</p>
+             <a href="user_pizza.html">View Recipe</a>
+        </div>
+        <div class="card">
+             <img src="cookies.jpg" width="200" height="300">
+             <p>cookies</p>
+             <a href="user_cookies.html">View Recipe</a>
+        </div>
+        <div class="card">
+             <img src="pasta.webp" width="200" height="300">
+             <p>Pasta Alfredo</p>
+             <a href="user_pasta.html">View Recipe</a>
+        </div>
+    </div>
 </div>
         
     </body>
