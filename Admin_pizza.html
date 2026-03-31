@@ -2,32 +2,40 @@
 <html>
 <head>
 <title>Pizza Recipe</title>
+<link rel="stylesheet" href="recipe_details.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
 </head>
 
 <body>
-    <div style="text-align:right;" >
-    <a href=""> Go back to Recipes |</a>
-     <a href="Home_Page.html">Log Out</a>
+    <nav>
+        <img src="Recipe_Logo.png"  alt="Recipe Finder Logo" >
+    <div id="navlinks" >
+        <a href="Home_Page.html">Home <i class="fa-solid fa-house"></i></a>
+        <a href="Recipes_List_Admin.html" >Go back to Recipes <i class="fa-sharp fa-solid fa-arrow-left"></i></a>
+       <a href="Home_Page.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
     </div>
-<hr>
-    <div style="text-align:center;">
+    </nav>
+
+    <div class="header">
 <h1>Italian pizza &#127829</h1> 
-<a href=""><button>Edit recipe</button></a>
+<p>Category: Main course</p>
+<img src="pizza.jpg" alt="pizza"  width="450" height="350">
+<a href="">Edit recipe</a>
 <button >Delete recipe</button>
-<br><br>
- <img src="pizza.jpg" alt="pizza"  width="450" height="350">
 </div>
-<p><strong>Category:</strong> Main course</p>
 
- <h2><u> Ingredients</u></h2>
-<h3>Dough</h3>
-    <ul>
-<li>1 ½ cups flour</li>
-<li>1 teaspoon instant yeast</li>
-<li>¾ cup warm water</li>
-<li>2 teaspoons olive oil</li>
-    </ul>
-
+<div class="content">
+      <div class="section1">
+        <h2><u> Ingredients</u></h2>
+        <h3>Dough</h3>
+        <ul>
+            <li>1 ½ cups flour</li>
+            <li>1 teaspoon instant yeast</li>
+            <li>¾ cup warm water</li>
+            <li>2 teaspoons olive oil</li>
+        </ul>
+      
     <h3>Topping</h3>
 <ul>
 <li>½ cup tomato sauce</li>
@@ -46,7 +54,9 @@
 <li>Salt to taste</li>
 <li>½ teaspoon sugar</li>
 </ul>
-<hr>
+</div>
+
+ <div class="section2">
     <h2><u>Preparation Steps</u></h2>
 <ol>
 <li>Dissolve the yeast in warm water and leave it until bubbles form.</li>
@@ -70,10 +80,14 @@
 <li>Mix well and let the sauce boil for 3 minutes.</li>
 <li>Add sugar, stir well, then remove from heat and let it cool.</li>
 </ol>
-<hr>
-   <p><strong>Cooking Time:</strong> 30 minutes</p>
-   <p><strong>Servings:</strong> 2 people</p>
-   
-</body>
+</div>
 
+</div>
+
+<div class="recipe-info">
+<p><strong>Cooking Time:</strong> 30 minutes</p>
+   <p><strong>Servings:</strong> 2 people</p>
+</div>
+
+</body>
 </html>
