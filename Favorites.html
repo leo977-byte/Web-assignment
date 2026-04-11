@@ -2,60 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Piece of Cake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piece of Cake - My Favorites</title>
+    
+    <link rel="stylesheet" href="Favorites.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+        
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="home.html">Home</a> |
-            <a href="recipes.html">Recipes</a> |
-            <a href="favorites.html">Favorites</a> |
-            <a href="Logout.html">Logout</a>
 
-        </nav>
-    
-    </header>
-    <hr> <main>
-        <h1>My Favorite Recipes </h1>
-        <p>List of Saved Recipes for Quick Access.</p>
-
-        <div>
-            <label for="search">Search:</label>
-            <input type="text" id="search">
-            <label for="filter">Filter:</label>
-            <select id="filter">
-                <option value="all">All</option>
-                <option value="main-dish">Main Dish</option>
-                <option value="dessert">Dessert</option>
-            </select>
+    <nav>
+        <img src="Recipe_Logo.png" alt="Logo">
+        <div class="nav-links">
+            <a href="Home_Page.html"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="Recipes_List.html"><i class="fa-solid fa-utensils"></i>Recipes</a>
+            <a href="Favorites.html"><i class="fa-solid fa-heart"></i>Favorites</a>
+            <a href="Sign Up.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
         </div>
-        <section>
-            <div>
-                <h3><u>Main Dish</u></h3>
-                <h2>Italian Pizza</h2>
-                <img width="200" src="pizza.jpg">
-                <p>Italian Pizza...</p>
-                <p>Saved on: 26-12-2025</p>
-                <a href="recipe-details.html?id=1"><button>View Details</button></a>
-                <button>Remove from Favorites</button>
-            </div>
-            <hr>
+    </nav>
 
-            <div>
-                <h3><u>Dessert</u></h3>
-                <h2>Cookies</h2>
-                <img width = "200" src="cookies.jpg">
-                <p>Cookies...</p>
-                <p>Saved on: 23-12-2025</p>
-                <a href="recipe-details.html?id=2"><button>View Details</button></a>
-                <button>Remove from Favorites</button>
+    <div class="header">
+        <h1>My Favorites <i class="fa-solid fa-heart"></i></h1>
+        <p>A place for all your loved tastes</p>
+    </div>
+
+    <div class="content-area">
+        
+        <div class="controls" id="controlsSection">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search by name...">
             </div>
-            <hr>
-            </section>
+            <div class="filter-box">
+                <i class="fa-solid fa-filter"></i>
+                <select id="categoryFilter">
+                    <option value="all">All Dishes</option>
+                    <option value="main-dish">Main Dish</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="recipes-grid" id="recipesGrid">
             
-    </main>
-    <hr> <footer>
-        <p>&copy; 2026 All Rights Reserved</p>
-    </footer>
+            <div id="emptyMessage" class="empty-state">
+                <i class="fa-regular fa-face-smile"></i>
+                <h3>No favorite recipes yet!</h3>
+                <p>Explore and add some magic to your list.</p>
+                <a href="recipes.html" class="btn-browse">Explore Recipes</a>
+            </div>
+
+            <div class="fav-card" data-category="main-dish">
+                <img src="pizza.jpg" alt="Pizza">
+                <h2>Italian Pizza</h2>
+                <span class="save-date">Saved on: 26-12-2025</span>
+                <div class="card-buttons">
+                    <a href="user_Pizza.html">View Details</a>
+                    <button onclick="removeRecipe(this)">Remove</button>
+                </div>
+            </div>
+
+            <div class="fav-card" data-category="dessert">
+                <img src="cookies.jpg" alt="Cookies">
+                <h2>Cookies</h2>
+                <span class="save-date">Saved on: 23-12-2025</span>
+                <div class="card-buttons">
+                    <a href="user_cookies.html">View Details</a>
+                    <button onclick="removeRecipe(this)">Remove</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>&copy; 2026 Piece of Cake.</footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const recipesGrid = document.getElementById('recipesGrid');
+        const emptyMessage = document.getElementById('emptyMessage');
+        const controls = document.getElementById('controlsSection');
+
+        function checkEmptyState() {
+            const cards = recipesGrid.getElementsByClassName('fav-card');
+            if (cards.length === 0) {
+                emptyMessage.style.display = "block";
+                controls.style.display = "none";
+            } else {
+                emptyMessage.style.display = "none";
+                controls.style.display = "flex";
+            }
+        }
+
+        function performFilter() {
+            const query = searchInput.value.toLowerCase();
+            const category = categoryFilter.value;
+            const cards = recipesGrid.getElementsByClassName('fav-card');
+
+            Array.from(cards).forEach(card => {
+                const title = card.querySelector('h2').innerText.toLowerCase();
+                const cardCat = card.getAttribute('data-category');
+                const matchesSearch = title.includes(query);
+                const matchesCat = (category === 'all' || cardCat === category);
+                card.style.display = (matchesSearch && matchesCat) ? "block" : "none";
+            });
+            checkEmptyState();
+        }
+
+        function removeRecipe(btn) {
+            if(confirm("Remove from favorites?")) {
+                btn.closest('.fav-card').remove();
+                checkEmptyState();
+            }
+        }
+
+        searchInput.addEventListener('keyup', performFilter);
+        categoryFilter.addEventListener('change', performFilter);
+        window.onload = checkEmptyState;
+    </script>
 </body>
 </html>
