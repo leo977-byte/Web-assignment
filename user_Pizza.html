@@ -10,17 +10,19 @@
     <nav>
         <img src="Recipe_Logo.png"  alt="Recipe Finder Logo" >
         <div id="navlinks">
-         <a href="Favourites.html">Fvourites <i class="fa-sharp fa-solid fa-heart"></i></a>
+        <a href="Favorites.html">Fvourites <i class="fa-sharp fa-solid fa-heart"></i></a>
         <a href="Home_Page.html">Home <i class="fa-solid fa-house"></i></a>
         <a href="Recipes_List_User.html" >Go back to Recipes <i class="fa-sharp fa-solid fa-arrow-left"></i></a>
-       <a href="Home_Page.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        <a href="Home_Page.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
     </nav>
 
     <div class="header">
 <h1>Italian pizza &#127829</h1> 
 <p>Category: Main course</p>
 <img src="pizza.jpg" alt="pizza"  width="450" height="350">
-<button >Add to favourite<i class="fa-solid fa-heart"></i></button>
+<button class="fav-btn" onclick="addToFavorites(1, 'Italian Pizza', 'Pizza.jpg', 'main-dish')">
+        Add to favourite<i class="fa-solid fa-heart"></i>
+        </button>
 </div>
 
 <div class="content">
@@ -86,6 +88,6 @@
 <p><strong>Cooking Time:</strong> 30 minutes</p>
    <p><strong>Servings:</strong> 2 people</p>
 </div>
-
+<script src="Favorites.js"></script>
 </body>
 </html>

@@ -20,15 +20,6 @@ searchInput.addEventListener("input", function () {
     });
 });
 
-const favButtons = document.querySelectorAll(".fav-btn");
-
-favButtons.forEach(button => {
-    button.addEventListener("click", function () {
-        alert("Recipe added to favorites! ❤️");
-    });
-});
-
-
 const role = localStorage.getItem("role");
 
 const adminElements = document.querySelectorAll(".admin-only");

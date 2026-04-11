@@ -12,7 +12,7 @@
 <!-- Navigation Bar -->
 <nav class="navbar">
     <div class="logo">
-        <img src="images/Cake_Logo.png" alt="logo">
+        <img src="Cake_Logo.png" alt="logo">
     </div>
     <a class="nav-link" href="Home_Page.html"><i class="fas fa-home"></i> Home</a> |
 
@@ -52,7 +52,7 @@
     <!-- PIZZA -->
 
     <li class="recipe recipe-card">
-        <img src="images/pizza.jpg" alt="Italian Pizza">
+        <img src="pizza.jpg" alt="Italian Pizza">
         <h3>Italian Pizza</h3>  
         
         <p class="category">Main Course</p>
@@ -60,7 +60,9 @@
 
        <!-- User Only (Favorites) -->
 
-        <button class="fav-btn user-only">Add to Favorites </button>
+        <button class="fav-btn user-only" onclick="addToFavorites(1, 'Italian Pizza', 'Pizza.jpg', 'main-dish')">
+             Add to Favorites 
+        </button>
         <a href="Favorites.html"><button class="view-fav user-only">View Favorites</button></a>
 
         <!-- Admin Only (Edit recipe) -->
@@ -71,7 +73,7 @@
     <!-- COOKIES -->
 
     <li class="recipe recipe-card">
-        <img src="images/cookies.jpg" alt="Cookies">
+        <img src="cookies.jpg" alt="Cookies">
         <h3>Cookies</h3>  
         
         <p class="category">Dessert</p>
@@ -79,7 +81,8 @@
 
         <!-- User Only (Favorites) -->
         
-        <button class="fav-btn user-only">Add to Favorites </button>
+        <button class="fav-btn user-only" onclick="addToFavorites(2, 'Cookies', 'cookies.jpg', 'dessert')"> Add to Favorites 
+        </button>
         <a href="Favorites.html"><button class="view-fav user-only">View Favorites</button></a>
 
         <!-- Admin Only (Edit recipe) -->
@@ -95,4 +98,5 @@
 </footer>
 </body>
  <script src="Recipes_List.js"></script>
+ <script src="Favorites.js"></script>
 </html>
