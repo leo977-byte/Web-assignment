@@ -135,3 +135,6 @@ body{
     border-top:solid #561c24;
     padding-left:10px;
 }
+.hidden { 
+    display: none;
+ }
