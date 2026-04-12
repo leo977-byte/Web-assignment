@@ -160,13 +160,22 @@ if (editBtn) editBtn.classList.add("hidden");
 if (deleteBtn) deleteBtn.classList.add("hidden");
 if (favBtn) favBtn.classList.add("hidden");
 
-
 if (role === "admin") {
     if (editBtn) editBtn.classList.remove("hidden");
     if (deleteBtn) deleteBtn.classList.remove("hidden");
 } 
 else if (role === "user") {
-    if (favBtn) favBtn.classList.remove("hidden");
+    if (favBtn) {
+        favBtn.classList.remove("hidden");
+        favBtn.addEventListener('click', function() {
+            addToFavorites(
+                selectedRecipe.id, 
+                selectedRecipe.title, 
+                selectedRecipe.image, 
+                selectedRecipe.category
+            );
+        });
+    }
 }
 renderUI();
 
