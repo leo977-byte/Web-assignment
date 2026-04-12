@@ -49,7 +49,7 @@ function displayFavorites() {
                 <h2>${recipe.name}</h2>
                 <span class="save-date">Saved on: ${recipe.date}</span>
                 <div class="card-buttons">
-                    <a href="${recipe.id === 1 ? 'user_Pizza.html' : 'user_cookies.html'}">View Details</a>
+                    <a href="recipe-details.html?id=${recipe.id}">View Details</a>
                     <button onclick="removeRecipe(${index})">Remove</button>
                 </div>
             `;

@@ -167,6 +167,16 @@ deleteBtn.addEventListener("click", () => {
 if (!role) {
     favBtn.style.display = "none";
 }
+favBtn.addEventListener("click", () => {
+    if (selectedRecipe) {
+        addToFavorites(
+            selectedRecipe.id, 
+            selectedRecipe.title, 
+            selectedRecipe.image, 
+            selectedRecipe.category
+        );
+    }
+});
 
 renderUI();
 
