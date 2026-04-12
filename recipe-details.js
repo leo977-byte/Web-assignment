@@ -123,8 +123,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (role === "admin") {
-        if (editBtn) editBtn.classList.remove("hidden");
-        if (deleteBtn) deleteBtn.classList.remove("hidden");
+        if (editBtn){ editBtn.classList.remove("hidden");
+           
+    editBtn.addEventListener("click", function () {
+        window.location.href = `edit_recipe.html?id=${selectedRecipe.id}`;
+    });
+}
+        if (deleteBtn){ 
+            deleteBtn.classList.remove("hidden");
+            deleteBtn.addEventListener("click", function () {
+
+        let confirmDelete = confirm("Are you sure you want to delete this recipe?");
+
+        if (!confirmDelete) return;
+
+        let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+       
+        let updatedRecipes = recipes.filter(recipe => recipe.id != selectedRecipe.id);
+
+        
+        localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+
+        alert("Recipe deleted successfully ");
+
+        window.location.href = "Recipes_List.html";
+    });
+}
     } 
     else if (role === "user") {
         if (favBtn) {
