@@ -19,11 +19,11 @@ removeBtn.onclick = function() {
     }
 };
 
-// كود حفظ الوصفة بالكامل
-document.querySelector('form').onsubmit = function(e) {
-    e.preventDefault(); // بيمنع الصفحة إنها تعمل ريفرش
 
-    // تجميع المكونات من الجدول اللي إنتي عملتيه
+document.querySelector('form').onsubmit = function(e) {
+    e.preventDefault(); 
+
+  
     let ingredients = [];
     let rows = document.querySelectorAll('#ingredientsTable tbody tr');
     rows.forEach(row => {
