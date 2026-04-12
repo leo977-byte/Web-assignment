@@ -150,7 +150,7 @@ if (role !== "admin") {
 }
 
 editBtn.addEventListener("click", () => {
-    localStorage.setItem("currentRecipe", JSON.stringify(selectedRecipe));
+    window.location.href = `Edit_recipe.html?id=${selectedRecipe.id}`;
 });
 
 
