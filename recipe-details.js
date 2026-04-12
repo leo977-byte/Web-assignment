@@ -81,7 +81,7 @@ let defaultRecipes = [
 ];
 
 
-let storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
+let storedRecipes = JSON.parse(localStorage.getItem("recipes"));
 
 if (!storedRecipes) {
     storedRecipes = defaultRecipes;
