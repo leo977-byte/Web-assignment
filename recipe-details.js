@@ -151,53 +151,23 @@ function renderUI() {
     document.getElementById("servings").innerText = selectedRecipe.servings;
 }
 
-
 const editBtn = document.getElementById("editBtn");
 const deleteBtn = document.getElementById("deleteBtn");
 const favBtn = document.getElementById("addToFavBtn");
 
-if (role !== "admin") {
-    editBtn.style.display = "none";
-    deleteBtn.style.display = "none";
-    favBtn.style.display = "block";
+
+if (editBtn) editBtn.classList.add("hidden");
+if (deleteBtn) deleteBtn.classList.add("hidden");
+if (favBtn) favBtn.classList.add("hidden");
+
+
+if (role === "admin") {
+    if (editBtn) editBtn.classList.remove("hidden");
+    if (deleteBtn) deleteBtn.classList.remove("hidden");
+} 
+else if (role === "user") {
+    if (favBtn) favBtn.classList.remove("hidden");
 }
-
-if(editBtn){
-editBtn.addEventListener("click", () => {
-    window.location.href = `Edit_recipe.html?id=${selectedRecipe.id}`;
-});
-}
-
-if(deleteBtn){
-deleteBtn.addEventListener("click", () => {
-
-    let confirmDelete = confirm("Are you sure?");
-
-    if (confirmDelete) {
-
-        storedRecipes = storedRecipes.filter(r => r.id != selectedRecipe.id);
-
-        localStorage.setItem("recipes", JSON.stringify(storedRecipes));
-
-        window.location.href = "Recipes_List.html";
-    }
-});
-}
-if (!role) {
-    favBtn.style.display = "none";
-}
-     if(favBtn){
-favBtn.addEventListener("click", () => {
-    if (selectedRecipe) {
-        addToFavorites(
-            selectedRecipe.id, 
-            selectedRecipe.title, 
-            selectedRecipe.image, 
-            selectedRecipe.category
-        );
-    }
-});
-     }
 renderUI();
 
 });
