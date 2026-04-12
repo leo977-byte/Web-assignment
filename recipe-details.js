@@ -83,7 +83,7 @@ let defaultRecipes = [
 
 let storedRecipes = JSON.parse(localStorage.getItem("recipes"));
 
-if (!storedRecipes) {
+if (!storedRecipes || storedRecipes.length === 0) {
     storedRecipes = defaultRecipes;
     localStorage.setItem("recipes", JSON.stringify(defaultRecipes));
 }
@@ -120,7 +120,7 @@ function renderUI() {
 
        selectedRecipe.ingredients.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = `${item.name} - ${item.qty}`;
+  li.textContent = item.qty ? `${item.name} - ${item.qty}`: item.name;
     ul.appendChild(li);
 });
 
@@ -149,11 +149,13 @@ if (role !== "admin") {
     favBtn.style.display = "block";
 }
 
+if(editBtn){
 editBtn.addEventListener("click", () => {
     window.location.href = `Edit_recipe.html?id=${selectedRecipe.id}`;
 });
+}
 
-
+if(deleteBtn){
 deleteBtn.addEventListener("click", () => {
 
     let confirmDelete = confirm("Are you sure?");
@@ -167,10 +169,11 @@ deleteBtn.addEventListener("click", () => {
         window.location.href = "Recipes_List.html";
     }
 });
-
+}
 if (!role) {
     favBtn.style.display = "none";
 }
+     if(favBtn){
 favBtn.addEventListener("click", () => {
     if (selectedRecipe) {
         addToFavorites(
@@ -181,7 +184,7 @@ favBtn.addEventListener("click", () => {
         );
     }
 });
-
+     }
 renderUI();
 
 });
