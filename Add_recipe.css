@@ -10,18 +10,15 @@ body {
     font-family: Arial, sans-serif;
     min-height: 100vh;
 }
-
-
-/* تنسيق الـ Navigation Bar */
 nav {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* ده اللي بيبعد اللوجو عن الروابط */
+    justify-content: space-between; 
     align-items: center;
-    background-color: #FFF5E1; /* لون كريمي هادي */
+    background-color: #FFF5E1;
     padding: 10px 30px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky; /* يخليه ثابت فوق */
+    position: sticky;
     top: 0;
     z-index: 100;
 }
@@ -40,14 +37,13 @@ nav img {
 }
 
 .nav-links a:hover { 
-    color: #8c3a45; /* يغير لونه لما تقربي منه */
+    color: #8c3a45; 
 }
 
 .nav-links i { 
-    margin-right: 8px; /* مسافة بين الأيقونة والكلمة */
+    margin-right: 8px; 
 }
 
-/* تنسيق الفوتر */
 footer { 
     text-align: center; 
     padding: 30px; 
