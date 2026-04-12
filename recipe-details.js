@@ -88,7 +88,20 @@ if (!storedRecipes || storedRecipes.length === 0) {
     localStorage.setItem("recipes", JSON.stringify(defaultRecipes));
 }
 
+storedRecipes = storedRecipes.map(recipe => {
 
+    recipe.ingredients = recipe.ingredients.map(item => {
+        if (typeof item === "string") {
+            return {
+                name: item,
+                qty: ""
+            };
+        }
+        return item;
+    });
+    return recipe;
+});  
+     
 function getRecipeId() {
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
