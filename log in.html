@@ -1,18 +1,27 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>This is the Log In Page</title>
+        <link rel = "stylesheet" href="Style.css">
+
     </head>
     <body>
         <h1>Log In</h1>
-        <form>
+        <h1>Don't have an account? <a href="sign up.html">Sign Up</a></h1>
+
+        <hr>
+        <form action ="Home_Page.html">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <br><br>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <br><br>
-            <input type="submit" value="Log In">
+            <input type="submit" value="Log In"> 
         </form>
     </body>
+    <p>
+        Skip sign in and <a href="Home_Page.html">continue as guest</a>
+        Note: As a guest, you will have limited access to features and may not be able to save your favorite recipes or access personalized recommendations.
+    </p>
 </html>
